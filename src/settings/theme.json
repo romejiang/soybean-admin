@@ -1,10 +1,10 @@
 {
-  "darkMode": false,
+  "darkMode": true,
   "followSystemTheme": true,
   "isCustomizeDarkModeTransition": false,
   "layout": {
     "minWidth": 900,
-    "mode": "vertical",
+    "mode": "horizontal-mix",
     "modeList": [
       {
         "value": "vertical",
@@ -63,7 +63,7 @@
     "#546e7a"
   ],
   "otherColor": {
-    "info": "#0099ad",
+    "info": "#4a4cd9",
     "success": "#52c41a",
     "warning": "#faad14",
     "error": "#f5222d"
@@ -80,7 +80,7 @@
     }
   },
   "tab": {
-    "visible": true,
+    "visible": false,
     "height": 44,
     "mode": "chrome",
     "modeList": [
@@ -121,7 +121,7 @@
     ]
   },
   "footer": {
-    "visible": true,
+    "visible": false,
     "fixed": false,
     "right": true,
     "height": 48,

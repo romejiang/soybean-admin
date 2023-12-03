@@ -85,7 +85,7 @@
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
 
-- **projects**: fix userRoleOptions &nbsp;-&nbsp; by @soybeanjs [<samp>(2ca2b)</samp>](https://github.com/honghuangdc/soybean-admin/commit/2ca2b76)
+- **projects**: fix userroleOptions &nbsp;-&nbsp; by @soybeanjs [<samp>(2ca2b)</samp>](https://github.com/honghuangdc/soybean-admin/commit/2ca2b76)
 - **styles**: fix toggle-lang bg &nbsp;-&nbsp; by @soybeanjs [<samp>(47309)</samp>](https://github.com/honghuangdc/soybean-admin/commit/473095b)
 
 ### &nbsp;&nbsp;&nbsp;🔥 Performance

@@ -19,6 +19,7 @@ module.exports = {
     'import/core-modules': ['uno.css', '~icons/*', 'virtual:svg-icons-register']
   },
   rules: {
+    'no-underscore-dangle': 'off',
     'import/order': [
       'error',
       {

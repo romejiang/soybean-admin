@@ -9,12 +9,12 @@ export const loginModuleLabels: Record<UnionKey.LoginModule, string> = {
   'bind-wechat': $t('page.login.bindWeChat.title')
 };
 
-export const userRoleLabels: Record<Auth.RoleType, string> = {
+export const userroleLabels: Record<Auth.RoleType, string> = {
   super: $t('page.login.pwdLogin.superAdmin'),
   admin: $t('page.login.pwdLogin.admin'),
   user: $t('page.login.pwdLogin.user')
 };
-export const userRoleOptions = transformObjectToOption(userRoleLabels);
+export const userroleOptions = transformObjectToOption(userroleLabels);
 
 /** 用户性别 */
 export const genderLabels: Record<UserManagement.GenderKey, string> = {

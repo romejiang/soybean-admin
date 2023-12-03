@@ -480,7 +480,7 @@ declare namespace I18nType {
     page: {
       login: {
         common: {
-          userNamePlaceholder: string;
+          usernamePlaceholder: string;
           phonePlaceholder: string;
           codePlaceholder: string;
           passwordPlaceholder: string;
