@@ -1,5 +1,5 @@
 import { useIconRender } from '@/composables';
-import { t } from '@/locales';
+import { $t } from '@/locales';
 
 /**
  * 将权限路由转换成菜单
@@ -50,7 +50,7 @@ export function translateMenuLabel(menus: App.GlobalMenuOption[]): App.GlobalMen
     const menuItem: App.GlobalMenuOption = {
       ...menu,
       children: menuChildren,
-      label: menu.i18nTitle ? t(menu.i18nTitle) : menu.label
+      label: menu.i18nTitle ? $t(menu.i18nTitle) : menu.label
     };
     globalMenu.push(menuItem);
   });
@@ -63,18 +63,29 @@ export function translateMenuLabel(menus: App.GlobalMenuOption[]): App.GlobalMen
  * @param menus - 菜单数据
  */
 export function getActiveKeyPathsOfMenus(activeKey: string, menus: App.GlobalMenuOption[]) {
-  const keys = menus.map(menu => getActiveKeyPathsOfMenu(activeKey, menu)).flat(1);
-  return keys;
-}
-
-function getActiveKeyPathsOfMenu(activeKey: string, menu: App.GlobalMenuOption) {
   const keys: string[] = [];
-  if (activeKey.startsWith(menu.routeName)) {
-    keys.push(menu.routeName);
+  const lists: App.GlobalMenuOption[] = [];
+  function traverse(list: App.GlobalMenuOption[], parent: App.GlobalMenuOption | null = null) {
+    list.forEach((t: App.GlobalMenuOption) => {
+      lists.push(t);
+      if (parent) {
+        t.parent = parent;
+      }
+      if (t.children) {
+        traverse(t.children, t);
+      }
+    });
   }
-  if (menu.children) {
-    keys.push(...menu.children.map(item => getActiveKeyPathsOfMenu(activeKey, item as App.GlobalMenuOption)).flat(1));
-  }
+  traverse(JSON.parse(JSON.stringify(menus)));
+  lists.forEach((t: App.GlobalMenuOption) => {
+    if (t.routeName === activeKey) {
+      let temp = t;
+      while (temp) {
+        keys.push(temp.routeName);
+        temp = temp.parent as App.GlobalMenuOption;
+      }
+    }
+  });
   return keys;
 }
 

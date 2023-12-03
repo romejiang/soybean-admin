@@ -6,11 +6,11 @@ const apis: MockMethod[] = [
     url: '/mock/getUserRoutes',
     method: 'post',
     response: (options: Service.MockOption): Service.MockServiceResult => {
-      const { userId = undefined } = options.body;
+      const { _id = undefined } = options.body;
 
       const routeHomeName: AuthRoute.LastDegreeRouteKey = 'dashboard_analysis';
 
-      const role = userModel.find(item => item.userId === userId)?.userRole || 'user';
+      const role = userModel.find(item => item._id === _id)?.userrole || 'user';
 
       const filterRoutes = routeModel[role];
 

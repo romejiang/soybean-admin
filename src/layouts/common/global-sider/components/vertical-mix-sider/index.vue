@@ -1,6 +1,6 @@
 <template>
   <dark-mode-container class="flex h-full" :inverted="theme.sider.inverted" @mouseleave="resetFirstDegreeMenus">
-    <div class="flex-1 flex-col-stretch h-full">
+    <div class="flex-1-hidden flex-col-stretch h-full">
       <global-logo :show-title="false" :style="{ height: theme.header.height + 'px' }" />
       <n-scrollbar class="flex-1-hidden">
         <mix-menu-detail
@@ -28,7 +28,7 @@ import { useRouterPush } from '@/composables';
 import { useBoolean } from '@/hooks';
 import { translateMenuLabel } from '@/utils';
 import { GlobalLogo } from '@/layouts/common';
-import { t } from '@/locales';
+import { $t } from '@/locales';
 import { MixMenuCollapse, MixMenuDetail, MixMenuDrawer } from './components';
 
 defineOptions({ name: 'VerticalMixSider' });
@@ -53,7 +53,7 @@ const firstDegreeMenus = computed(() =>
 
     return {
       routeName,
-      label: i18nTitle ? t(i18nTitle) : label,
+      label: i18nTitle ? $t(i18nTitle) : label,
       icon,
       hasChildren
     };

@@ -31,6 +31,8 @@ async function setupApp() {
 
   setupFastCrud(app);
 
+  appLoading.unmount();
+
   // mount app
   app.mount('#app');
 }

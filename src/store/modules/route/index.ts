@@ -14,6 +14,7 @@ import {
   transformRoutePathToRouteName,
   sortRoutes
 } from '@/utils';
+import { useAppStore } from '../app';
 import { useAuthStore } from '../auth';
 import { useTabStore } from '../tab';
 
@@ -110,18 +111,19 @@ export const useRouteStore = defineStore('route-store', {
       const { resetAuthStore } = useAuthStore();
       const { initHomeTab } = useTabStore();
 
-      const { userId } = localStg.get('userInfo') || {};
+      const { _id } = localStg.get('userInfo') || {};
 
-      if (!userId) {
-        throw new Error('userId 不能为空!');
+      if (!_id) {
+        throw new Error('_id 不能为空!');
       }
 
-      const { error, data } = await fetchUserRoutes(userId);
+      const { error, data } = await fetchUserRoutes(_id);
 
       if (!error) {
+        this.handleAuthRoute(sortRoutes(data.routes));
+        // home相关处理需要在最后，否则会出现找不到主页404的情况
         this.routeHomeName = data.home;
         this.handleUpdateRootRedirect(data.home);
-        this.handleAuthRoute(sortRoutes(data.routes));
 
         initHomeTab(data.home, router);
 
@@ -135,7 +137,7 @@ export const useRouteStore = defineStore('route-store', {
       const { initHomeTab } = useTabStore();
       const auth = useAuthStore();
 
-      const routes = filterAuthRoutesByUserPermission(staticRoutes, auth.userInfo.userRole);
+      const routes = filterAuthRoutesByUserPermission(staticRoutes, auth.userInfo.userrole);
       this.handleAuthRoute(routes);
 
       initHomeTab(this.routeHomeName, router);
@@ -150,7 +152,6 @@ export const useRouteStore = defineStore('route-store', {
         await this.initStaticRoute();
       }
     },
-
     /** 从缓存路由中去除某个路由 */
     removeCacheRoute(name: AuthRoute.AllRouteKey) {
       const index = this.cacheRoutes.indexOf(name);
@@ -158,12 +159,29 @@ export const useRouteStore = defineStore('route-store', {
         this.cacheRoutes.splice(index, 1);
       }
     },
-
     /** 添加某个缓存路由 */
     addCacheRoute(name: AuthRoute.AllRouteKey) {
       const index = this.cacheRoutes.indexOf(name);
       if (index === -1) {
         this.cacheRoutes.push(name);
+      }
+    },
+    /**
+     * 重新缓存路由
+     */
+    async reCacheRoute(name: AuthRoute.AllRouteKey) {
+      const { reloadPage } = useAppStore();
+
+      const isCached = this.cacheRoutes.includes(name);
+
+      if (isCached) {
+        this.removeCacheRoute(name);
+      }
+
+      await reloadPage();
+
+      if (isCached) {
+        this.addCacheRoute(name as AuthRoute.AllRouteKey);
       }
     }
   }

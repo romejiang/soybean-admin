@@ -1,12 +1,12 @@
 <template>
   <n-space :vertical="true">
-    <n-divider class="!mb-0 text-14px text-#666">其他账户登录</n-divider>
+    <n-divider class="!mb-0 text-14px text-#666">{{ $t('page.login.pwdLogin.otherAccountLogin') }}</n-divider>
     <n-space justify="center">
       <n-button
         v-for="item in accounts"
-        :key="item.userName"
+        :key="item.username"
         type="primary"
-        @click="login(item.userName, item.password)"
+        @click="login(item.username, item.password)"
       >
         {{ item.label }}
       </n-button>
@@ -15,32 +15,45 @@
 </template>
 
 <script lang="ts" setup>
+import { userroleLabels } from '@/constants';
+import { $t } from '@/locales';
+
 interface Emits {
-  (e: 'login', param: { userName: string; password: string }): void;
+  (e: 'login', param: { username: string; password: string }): void;
 }
 
 const emit = defineEmits<Emits>();
 
-const accounts = [
+interface Account {
+  key: Auth.RoleType;
+  label: string;
+  username: string;
+  password: string;
+}
+
+const accounts: Account[] = [
   {
-    label: '超级管理员',
-    userName: 'Super',
+    key: 'super',
+    label: userroleLabels.super,
+    username: 'Super',
     password: 'super123'
   },
   {
-    label: '管理员',
-    userName: 'Admin',
+    key: 'admin',
+    label: userroleLabels.admin,
+    username: 'Admin',
     password: 'admin123'
   },
   {
-    label: '普通用户',
-    userName: 'User01',
+    key: 'user',
+    label: userroleLabels.user,
+    username: 'User01',
     password: 'user01123'
   }
 ];
 
-function login(userName: string, password: string) {
-  emit('login', { userName, password });
+function login(username: string, password: string) {
+  emit('login', { username, password });
 }
 </script>
 

@@ -92,11 +92,13 @@ function install(app: App, options: FsSetupOpts = {}) {
           transformRes: originPageRes => {
             const { res } = originPageRes;
             const pageSize = res.limit;
+            const total = res.total;
+            const records = res.records;
             let currentPage = res.offset / pageSize;
             if (res.offset % pageSize === 0) {
               currentPage += 1;
             }
-            return { currentPage, pageSize, ...res };
+            return { currentPage, pageSize, total, records, ...res };
           }
         },
         form: {

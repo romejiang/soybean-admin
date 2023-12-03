@@ -10,7 +10,8 @@ module.exports = {
     {
       files: ['*.vue'],
       rules: {
-        'no-undef': 'off' // use tsc to check the ts code of the vue
+        'no-undef': 'off', // use tsc to check the ts code of the vue
+        'vue/no-setup-props-destructure': 'off' // wait to fix this rule
       }
     }
   ],
@@ -18,6 +19,7 @@ module.exports = {
     'import/core-modules': ['uno.css', '~icons/*', 'virtual:svg-icons-register']
   },
   rules: {
+    'no-underscore-dangle': 'off',
     'import/order': [
       'error',
       {

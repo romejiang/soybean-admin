@@ -1,9 +1,10 @@
 {
-  "darkMode": false,
+  "darkMode": true,
   "followSystemTheme": true,
+  "isCustomizeDarkModeTransition": false,
   "layout": {
     "minWidth": 900,
-    "mode": "vertical",
+    "mode": "horizontal-mix",
     "modeList": [
       {
         "value": "vertical",
@@ -34,15 +35,15 @@
       "label": "主体滚动"
     }
   ],
-  "themeColor": "#1890ff",
+  "themeColor": "#646cff",
   "themeColorList": [
     "#1890ff",
     "#409EFF",
-    "#2d8cf0",
     "#007AFF",
     "#5ac8fa",
     "#5856D6",
     "#536dfe",
+    "#646cff",
     "#9c27b0",
     "#AF52DE",
     "#0096c7",
@@ -62,7 +63,7 @@
     "#546e7a"
   ],
   "otherColor": {
-    "info": "#0099ad",
+    "info": "#4a4cd9",
     "success": "#52c41a",
     "warning": "#faad14",
     "error": "#f5222d"
@@ -79,7 +80,7 @@
     }
   },
   "tab": {
-    "visible": true,
+    "visible": false,
     "height": 44,
     "mode": "chrome",
     "modeList": [
@@ -120,7 +121,7 @@
     ]
   },
   "footer": {
-    "visible": true,
+    "visible": false,
     "fixed": false,
     "right": true,
     "height": 48,
