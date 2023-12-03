@@ -17,7 +17,6 @@ export function fetchSmsCode(phone: string) {
  */
 export function fetchLogin(username: string, password: string) {
   return mockRequest.post<ApiAuth.Token>('/public/signin', {
-    // return mockRequest.post<ApiAuth.Token>("/login", {
     username,
     password
   });
@@ -25,7 +24,8 @@ export function fetchLogin(username: string, password: string) {
 
 /** 获取用户信息 */
 export function fetchUserInfo() {
-  return mockRequest.get<ApiAuth.UserInfo>('/getUserInfo');
+  return mockRequest.get<ApiAuth.UserInfo>('/user/getUserInfo');
+  // return mockRequest.get<ApiAuth.UserInfo>('/getUserInfo');
 }
 
 /**
