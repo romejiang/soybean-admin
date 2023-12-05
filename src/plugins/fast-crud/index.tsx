@@ -5,7 +5,7 @@ import { FastCrud } from "@fast-crud/fast-crud";
 import "@fast-crud/fast-crud/dist/style.css";
 import "./common.scss";
 import { getServiceEnvConfig } from "~/.env-config";
-const { url, proxyPattern } = getServiceEnvConfig(import.meta.env);
+const { url } = getServiceEnvConfig(import.meta.env);
 
 import type { FsUploaderOptions } from "@fast-crud/fast-extends";
 import {

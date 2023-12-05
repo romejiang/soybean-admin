@@ -9,9 +9,6 @@ import { onMounted } from "vue";
 import { useFs, dict } from "@fast-crud/fast-crud";
 import createCrudOptions from "@/views/crud";
 
-
-
-
 const apiPrefix = "/admin";
 const context: any = {
 	apiPrefix,
