@@ -152,7 +152,8 @@ export default {
           let orderAsc: any;
           let orderProp: any;
           if (req && req.body) {
-            const { page, query } = req.body;
+            let { page, query } = req.body;
+            query = query || {}
             if (page.limit) {
               limit = parseInt(page.limit, 10);
             }

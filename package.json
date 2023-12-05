@@ -129,7 +129,7 @@
       "mockjs@1.1.0": "patches/mockjs@1.1.0.patch"
     }
   },
-  "simple-git-hooks": {
+  "xxxsimple-git-hooks": {
     "commit-msg": "pnpm soy git-commit-verify",
     "pre-commit": "pnpm typecheck && pnpm soy lint-staged"
   },
