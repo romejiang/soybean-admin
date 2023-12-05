@@ -1,5 +1,5 @@
 import type { App } from 'vue';
-import type { FsSetupOptions, PageQuery } from '@fast-crud/fast-crud';
+import type { FsSetupOptions } from '@fast-crud/fast-crud';
 // eslint-disable-next-line import/order
 import { FastCrud } from '@fast-crud/fast-crud';
 import '@fast-crud/fast-crud/dist/style.css';
@@ -39,10 +39,9 @@ function install(app: App, options: FsSetupOpts = {}) {
       const url = context.url;
       let res: Service.SuccessResult | Service.FailedResult;
       if (url && url.startsWith('/mock')) {
-        // 如果是crud开头的dict请求视为mock
         res = await mockRequest.get(url.replace('/mock', ''));
       } else {
-        res = await request.get(url);
+        res = await request.post(url);
       }
       res = res || {};
       return res.data || [];
@@ -71,39 +70,36 @@ function install(app: App, options: FsSetupOpts = {}) {
             more: { size: 'small' }
           }
         },
-        request: {
-          // 查询参数转换
-          transformQuery: (query: PageQuery) => {
-            const { page, form, sort } = query;
-            const limit = page.pageSize;
-            const currentPage = page.currentPage ?? 1;
-            const offset = limit * (currentPage - 1);
-
-            return {
-              page: {
-                limit,
-                offset
-              },
-              query: form,
-              sort: sort || {}
-            };
-          },
-          // page请求结果转换
-          transformRes: originPageRes => {
-            const { res } = originPageRes;
-            const pageSize = res.limit;
-            const total = res.total;
-            const records = res.records;
-            let currentPage = res.offset / pageSize;
-            if (res.offset % pageSize === 0) {
-              currentPage += 1;
-            }
-            return { currentPage, pageSize, total, records, ...res };
-          }
-        },
         form: {
           display: 'flex', // 表单布局
           labelWidth: '120px' // 表单label宽度
+        },
+        columns: {
+          updatedAt: {
+            title: '时间',
+            type: 'datetime',
+            column: {
+              order: 99
+            },
+            form: {
+              order: 99,
+              show: false
+            }
+            // valueBuilder(context) {
+            //   const { value, row, key } = context;
+            //   if (value) {
+            //     console.log(value, dayjs(value).valueOf());
+
+            //     row[key] = dayjs(value).valueOf();
+            //   }
+            // },
+            // valueResolve(context) {
+            //   const { value, form, key } = context;
+            //   if (value) {
+            //     form[key] = dayjs(value).format('YYYY-MM-DD HH:mm:ss');
+            //   }
+            // }
+          }
         }
       };
       // 从 useCrud({permission}) 里获取permission参数，去设置各个按钮的权限

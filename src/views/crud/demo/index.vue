@@ -1,6 +1,6 @@
 <template>
   <div class="h-full">
-    <fs-crud ref="crudRef" v-bind="crudBinding"> </fs-crud>
+    <fs-crud ref="crudRef" v-bind="crudBinding"></fs-crud>
   </div>
 </template>
 

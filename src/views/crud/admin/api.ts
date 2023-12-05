@@ -1,8 +1,8 @@
 import type { UserPageQuery } from '@fast-crud/fast-crud';
-import { mockRequest } from '@/service/request';
+import { request as mockRequest } from '@/service/request';
 
 const request = mockRequest;
-const apiPrefix = '/crud/demo';
+const apiPrefix = '/admin';
 
 export type DemoRecord = {
   id: number;
@@ -13,24 +13,22 @@ function resHandle(res: any) {
   return res.data;
 }
 export async function GetList(query: UserPageQuery) {
-  // console.log(query);
-  const res = await request.post(`${apiPrefix}/page`, query);
-  // console.log(res.data);
+  const res = await request.post(`${apiPrefix}/list`, query);
   return resHandle(res);
 }
 
 export async function AddObj(obj: DemoRecord) {
-  const res = await request.post(`${apiPrefix}/add`, obj);
+  const res = await request.post(`${apiPrefix}`, obj);
   return resHandle(res);
 }
 
 export async function UpdateObj(obj: DemoRecord) {
-  const res = await request.post(`${apiPrefix}/update`, obj);
+  const res = await request.put(`${apiPrefix}/update`, obj);
   return resHandle(res);
 }
 
 export async function DelObj(id: number) {
-  const res = await request.post(`${apiPrefix}/delete`, { id });
+  const res = await request.delete(`${apiPrefix}/${id}`);
   return resHandle(res);
 }
 
