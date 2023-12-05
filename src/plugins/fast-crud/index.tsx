@@ -127,7 +127,7 @@ function install(app: App, options: FsSetupOpts = {}) {
 	const uploaderOptions: FsUploaderOptions = {
 		defaultType: "form",
 		form: {
-			action: url + "/upload/avatar",
+			action: url + "/../public/avatar",
       // action: 'http://www.docmirror.cn:7070/api/upload/form/upload',
 			name: "file",
 			withCredentials: false,
