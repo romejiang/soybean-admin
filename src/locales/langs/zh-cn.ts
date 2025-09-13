@@ -143,7 +143,8 @@ const local: App.I18n.Schema = {
     },
     watermark: {
       visible: '显示全屏水印',
-      text: '水印文本'
+      text: '水印文本',
+      enableUserName: '启用用户名水印'
     },
     themeDrawerTitle: '主题配置',
     pageFunTitle: '页面功能',
@@ -173,6 +174,7 @@ const local: App.I18n.Schema = {
     document: '文档',
     document_project: '项目文档',
     'document_project-link': '项目文档(外链)',
+    document_video: '视频教程',
     document_vue: 'Vue文档',
     document_vite: 'Vite文档',
     document_unocss: 'UnoCSS文档',
@@ -293,7 +295,7 @@ const local: App.I18n.Schema = {
     },
     about: {
       title: '关于',
-      introduction: `SoybeanAdmin 是一个优雅且功能强大的后台管理模板，基于最新的前端技术栈，包括 Vue3, Vite5, TypeScript, Pinia 和 UnoCSS。它内置了丰富的主题配置和组件，代码规范严谨，实现了自动化的文件路由系统。此外，它还采用了基于 ApiFox 的在线Mock数据方案。SoybeanAdmin 为您提供了一站式的后台管理解决方案，无需额外配置，开箱即用。同样是一个快速学习前沿技术的最佳实践。`,
+      introduction: `SoybeanAdmin 是一个优雅且功能强大的后台管理模板，基于最新的前端技术栈，包括 Vue3, Vite7, TypeScript, Pinia 和 UnoCSS。它内置了丰富的主题配置和组件，代码规范严谨，实现了自动化的文件路由系统。此外，它还采用了基于 ApiFox 的在线Mock数据方案。SoybeanAdmin 为您提供了一站式的后台管理解决方案，无需额外配置，开箱即用。同样是一个快速学习前沿技术的最佳实践。`,
       projectInfo: {
         title: '项目信息',
         version: '版本',

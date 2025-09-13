@@ -18,13 +18,19 @@
 > [!NOTE]
 > 如果您觉得 `SoybeanAdmin`对您有所帮助，或者您喜欢我们的项目，请在 GitHub 上给我们一个 ⭐️。您的支持是我们持续改进和增加新功能的动力！感谢您的支持！
 
+> [!NOTE]
+> `SoybeanAdmin` 快速上手系列视频已在 [Bilibili](https://www.bilibili.com/video/BV1YKdRYXELC) 上线 [点击这里](https://www.bilibili.com/video/BV1YKdRYXELC) 前往查看
+
+> [!WARNING]
+> `SoybeanAdmin` 正在计划开发 `V2` 版本，详情见[计划清单](https://github.com/soybeanjs/soybean-admin/issues/767)
+
 ## 简介
 
-[`SoybeanAdmin`](https://github.com/soybeanjs/soybean-admin) 是一个清新优雅、高颜值且功能强大的后台管理模板，基于最新的前端技术栈，包括 Vue3, Vite6, TypeScript, Pinia 和 UnoCSS。它内置了丰富的主题配置和组件，代码规范严谨，实现了自动化的文件路由系统。此外，它还采用了基于 ApiFox 的在线Mock数据方案。`SoybeanAdmin` 为您提供了一站式的后台管理解决方案，无需额外配置，开箱即用。同样是一个快速学习前沿技术的最佳实践。
+[`SoybeanAdmin`](https://github.com/soybeanjs/soybean-admin) 是一个清新优雅、高颜值且功能强大的后台管理模板，基于最新的前端技术栈，包括 Vue3, Vite7, TypeScript, Pinia 和 UnoCSS。它内置了丰富的主题配置和组件，代码规范严谨，实现了自动化的文件路由系统。此外，它还采用了基于 ApiFox 的在线Mock数据方案。`SoybeanAdmin` 为您提供了一站式的后台管理解决方案，无需额外配置，开箱即用。同样是一个快速学习前沿技术的最佳实践。
 
 ## 特性
 
-- **前沿技术应用**：采用 Vue3, Vite6, TypeScript, Pinia 和 UnoCSS 等最新流行的技术栈。
+- **前沿技术应用**：采用 Vue3, Vite7, TypeScript, Pinia 和 UnoCSS 等最新流行的技术栈。
 - **清晰的项目架构**：采用 pnpm monorepo 架构，结构清晰，优雅易懂。
 - **严格的代码规范**：遵循 [SoybeanJS 规范](https://docs.soybeanjs.cn/zh/standard)，集成了eslint, prettier 和 simple-git-hooks，保证代码的规范性。
 - **TypeScript**： 支持严格的类型检查，提高代码的可维护性。
@@ -118,8 +124,8 @@
 确保你的环境满足以下要求：
 
 - **git**: 你需要git来克隆和管理项目版本。
-- **NodeJS**: >=18.12.0，推荐 18.19.0 或更高。
-- **pnpm**: >= 8.7.0，推荐 8.14.0 或更高。
+- **NodeJS**: >=20.19.0，推荐 20.19.0 或更高。
+- **pnpm**: >= 10.5.0，推荐 10.5.0 或更高。
 
 **克隆项目**
 
