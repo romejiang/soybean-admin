@@ -24,6 +24,7 @@ declare module "@elegant-router/types" {
     "document": "/document";
     "document_project": "/document/project";
     "document_project-link": "/document/project-link";
+    "document_video": "/document/video";
     "document_vue": "/document/vue";
     "document_vite": "/document/vite";
     "document_unocss": "/document/unocss";
@@ -126,6 +127,7 @@ declare module "@elegant-router/types" {
     | "document"
     | "document_project"
     | "document_project-link"
+    | "document_video"
     | "document_vue"
     | "document_vite"
     | "document_unocss"
@@ -243,6 +245,7 @@ declare module "@elegant-router/types" {
     | "exception_500"
     | "document_project"
     | "document_project-link"
+    | "document_video"
     | "document_vue"
     | "document_vite"
     | "document_unocss"
