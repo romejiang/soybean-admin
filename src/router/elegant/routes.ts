@@ -96,6 +96,45 @@ export const generatedRoutes: GeneratedRoute[] = [
     ]
   },
   {
+    name: 'crud',
+    path: '/crud',
+    component: 'layout.base',
+    meta: {
+      title: 'FastCRUD',
+      i18nKey: 'route.crud'
+    },
+    children: [
+      {
+        name: 'crud_demo',
+        path: '/crud/demo',
+        component: 'view.crud_demo',
+        meta: {
+          title: '基础演示',
+          i18nKey: 'route.crud_demo'
+        }
+      },
+      {
+        name: 'crud_header',
+        path: '/crud/header',
+        meta: {
+          title: '动态表头',
+          i18nKey: 'route.crud_header'
+        },
+        children: [
+          {
+            name: 'crud_header_group',
+            path: '/crud/header/group',
+            component: 'view.crud_header_group',
+            meta: {
+              title: '表头分组',
+              i18nKey: 'route.crud_header_group'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
     name: 'function',
     path: '/function',
     component: 'layout.base',

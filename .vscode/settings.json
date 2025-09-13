@@ -14,5 +14,21 @@
   "prettier.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib",
   "unocss.root": ["./"],
-  "vue.server.hybridMode": true
+  "vue.server.hybridMode": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/bower_components": true,
+    "**/CVS": true,
+    "**/node_modules": true,
+    "**/tmp": true,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "hide-files.files": []
 }

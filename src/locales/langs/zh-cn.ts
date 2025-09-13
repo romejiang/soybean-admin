@@ -160,6 +160,10 @@ const local: App.I18n.Schema = {
     }
   },
   route: {
+    crud: 'FastCRUD',
+    crud_demo: '基础演示',
+    crud_header: '动态表头',
+    crud_header_group: '表头分组',
     login: '登录',
     403: '无权限',
     404: '页面不存在',
