@@ -3,6 +3,7 @@ import './plugins/assets';
 import {
   setupAppVersionNotification,
   setupDayjs,
+  setupFastCrud,
   setupIconifyOffline,
   setupLoading,
   setupNProgress,
@@ -31,6 +32,8 @@ async function setupApp() {
   setupProNaiveComponents(app);
 
   setupI18n(app);
+
+  setupFastCrud(app);
 
   setupAppVersionNotification();
 

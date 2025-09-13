@@ -1,3 +1,7 @@
+import { setupFastCrud } from '@/plugins/fast-crud';
+
+export { setupFastCrud };
+
 export * from './loading';
 export * from './nprogress';
 export * from './components';
